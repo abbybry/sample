@@ -2,7 +2,7 @@ import fetch from "node-fetch";
 
 export default async function handler(req, res) {
   try {
-    // Twilio sends us the recording URL after caller speaks
+    // Twilio gives us the recording URL after caller speaks
     const recordingUrl = req.body.RecordingUrl;
 
     // 1. Download audio file from Twilio
@@ -42,9 +42,9 @@ export default async function handler(req, res) {
     const llmData = await llmResponse.json();
     const replyText = llmData.output[0].content[0].text;
 
-    // 4. Convert reply to voice with ElevenLabs
+    // 4. Convert reply to voice with ElevenLabs (your custom voice)
     const elevenResponse = await fetch(
-      "https://api.elevenlabs.io/v1/text-to-speech/EXAVITQu4vr4xnSDxMaL", // default voice
+      "https://api.elevenlabs.io/v1/text-to-speech/w9rPM8AIZle60Nbpw7nl",
       {
         method: "POST",
         headers: {
