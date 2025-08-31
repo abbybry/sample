@@ -2,7 +2,7 @@ export default function handler(req, res) {
   res.setHeader("Content-Type", "text/xml");
   res.status(200).send(`
     <Response>
-      <Say voice="alice">Hi, you’re speaking with the AI receptionist. Please say something after the beep.</Say>
+      <Play>/greeting.mp3</Play>
       <Record 
         action="/api/response"
         method="POST"
